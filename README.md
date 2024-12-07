@@ -15,9 +15,9 @@ The system takes data from an initial database, converts to json in a lambda fun
 
 ## Deployment
 
-This project can either be deployed through github actions
+This project can either be deployed through github actions (on push to main branch).
 
-if you want to deploy to aws without github, run the following commands inside the terraform directory:
+If you want to deploy to aws without github, run the following commands inside the terraform directory:
 
 ```bash
   terraform init
@@ -25,7 +25,7 @@ if you want to deploy to aws without github, run the following commands inside t
   terraform apply
 ```
 
-to set up the development environment :
+To set up the development environment :
 
 ```bash
   make requirements
@@ -39,12 +39,12 @@ On deployment, the following structure (inside the terraform red rectangle) will
 
 ## Infrastructure
 
-Requires a pre-made s3 backend bucket to store the terraform state.
+Requires a pre-made s3 backend bucket to store the terraform state. The name of the created bucket shuold be added to 'bucket' on line 9 of provider.tf file.
 
 
 ## Secrets
 
-To run this project via github actions pipeline. you will need to add the following to your Github secrets
+To run this project via github actions pipeline, you will need to add the following to your Github secrets, in order to setup your AWS credentials:
 
 AWS_ACCESS_KEY_ID
 
@@ -56,7 +56,7 @@ you will also need a github variable
 
 EMAIL_ENDPOINT
 
-you will also need to add the following to your AWS secretsmanager
+To interact with the database and warehouse, the credentials need to be accessible by the functions. You will need to add the following to your AWS secretsmanager
 
 ```bash
 {'totesys_db_credentials' : 
@@ -67,6 +67,8 @@ you will also need to add the following to your AWS secretsmanager
  "port" : DATABASE_PORT_NO }
 }
 ```
+The ARN of this AWS resource should be added to 'resources' on line 48 of iam_extract.tf file.
+
 ```bash
 {'project_dw_credentials' : 
 {"username" : DATABASE_USERNAME
@@ -76,6 +78,7 @@ you will also need to add the following to your AWS secretsmanager
  "port" : DATABASE_PORT_NO }
 }
 ```
+The ARN of this AWS resource should be added to 'resources' on line 54 of iam_load.tf file.
     
 ## Tech Stack 
 
@@ -104,4 +107,5 @@ Count of sales by month for the top 5 clients:
 ![top 5 clients](image-2.png)
 
 Sales records for the top seller design, displayed by purchase location:
+
 ![world sales best design](image-1.png)

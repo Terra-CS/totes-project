@@ -52,7 +52,6 @@ data "aws_iam_policy_document" "load_lambda_get_secret_doc" {
   statement {
     actions   = ["secretsmanager:GetSecretValue"]
     resources = ["arn:aws:secretsmanager:eu-west-2:699475945437:secret:project_dw_credentials-zaD3w3"]
-    # ["arn:aws:secretsmanager:eu-west-2:783764617945:secret:project_dw_credentials-JBuscu"]
   }
 
 }

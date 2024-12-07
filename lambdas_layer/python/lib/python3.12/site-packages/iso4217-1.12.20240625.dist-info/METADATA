@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: iso4217
+Version: 1.12.20240625
+Summary: ISO 4217 currency data package for Python
+Home-page: https://github.com/dahlia/iso4217
+Author: Hong Minhee
+Author-email: hong.minhee@gmail.com
+License: Public Domain
+Keywords: internationalization i18n currency iso4217
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: Stackless
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Software Development :: Internationalization
+Requires-Python: !=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: importlib-resources <3.3 ; python_version == "3.5"
+Requires-Dist: importlib-resources ; python_version > "3.5" and python_version < "3.9"
+
+``iso4217``: Currency data package for Python
+=============================================
+
+.. image:: https://badge.fury.io/py/iso4217.svg?
+   :target: https://pypi.python.org/pypi/iso4217
+.. image:: https://github.com/dahlia/iso4217/actions/workflows/main.yaml/badge.svg
+   :target: https://github.com/dahlia/iso4217/actions/workflows/main.yaml
+
+This Python package contains `ISO 4217`_ currency data, represented as
+enum_ module which was introduced in 3.4.
+
+>>> from iso4217 import Currency
+>>> Currency.USD
+<Currency.USD: 'USD'>
+>>> Currency.USD.code
+'USD'
+>>> Currency.USD.currency_name
+'US Dollar'
+>>> Currency.USD.exponent  # USD has cents
+2
+>>> Currency.JPY
+<Currency.JPY: 'JPY'>
+>>> Currency.JPY.currency_name
+'Yen'
+>>> Currency.JPY.exponent  # JPY has no minor units
+0
+>>> Currency('KRW')  # Get by the code string
+<Currency.KRW: 'KRW'>
+>>> Currency.KRW is Currency('KRW')
+True
+>>> Currency.krw is Currency.KRW  # Lower enumerants are also available
+
+Written by `Hong Minhee`_.  Distributed under Public Domain.
+
+
+.. _ISO 4217: http://www.iso.org/iso/home/standards/currency_codes.htm
+.. _enum: https://docs.python.org/3/library/enum.html
+.. _enum34: https://pypi.python.org/pypi/enum34
+.. _Hong Minhee: https://hongminhee.org/

@@ -1,0 +1,10 @@
+venv/
+**/.pycache
+**/__pycache__
+.env
+.terraform*
+terraform/terraform*
+**/.terraform*
+*.tfstate*
+zip_funcs/
+.pytest_cache

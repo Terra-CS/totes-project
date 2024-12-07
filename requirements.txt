@@ -1,0 +1,17 @@
+boto3
+botocore
+moto
+pytest
+pytest-testdox
+bandit
+safety
+black
+flake8
+freezegun
+pg8000
+python-dotenv
+pandas
+iso4217
+fastparquet
+sqlalchemy
+pyarrow==17.0.0

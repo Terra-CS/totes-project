@@ -34,7 +34,7 @@ To set up the development environment :
 
 On deployment, the following structure (inside the terraform red rectangle) will be created on aws:
 
-![structure](image.png)
+![structure](_images/image.png)
 
 
 ## Infrastructure
@@ -98,14 +98,5 @@ command:
 ```
 This will run Pytest, Safety, Bandit and Flake8.
 
-## Data Visualization
-
-As an example, the folowing graphics were generated through 'Tableau' using data from the warehouse:
-
-Count of sales by month for the top 5 clients:
-
-![top 5 clients](image-2.png)
-
-Sales records for the top seller design, displayed by purchase location:
-
-![world sales best design](image-1.png)
+### Data Visualization
+Examples can be seen on DATA_VIS.md
